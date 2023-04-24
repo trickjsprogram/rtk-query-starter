@@ -11,19 +11,19 @@ const UserInfo = () => {
         </div>
         <div className="container">
           <strong>ID: </strong>
-          <span>1</span>
+          <span>{id}</span>
           <br />
           <br />
           <strong>Name: </strong>
-          <span>Test</span>
+          <span>{data && data.name}</span>
           <br />
           <br />
           <strong>Email: </strong>
-          <span>test@gmail.com</span>
+          <span>{data && data.email}</span>
           <br />
           <br />
           <strong>Contact: </strong>
-          <span>775675673</span>
+          <span>{data && data.contact}</span>
           <br />
           <br />
           <Link to="/">
