@@ -1,8 +1,11 @@
+import {useEffect} from 'react';
 import { useParams, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./UserInfo.css";
 
 const UserInfo = () => {
   const { id } = useParams();
+  const {data,error, isFetching, isLoading} = useContactQuery(id!);
   return (
     <div style={{ marginTop: "150px" }}>
       <div className="card">
