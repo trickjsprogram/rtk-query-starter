@@ -16,6 +16,14 @@ const AddEditUser = () => {
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
   const { id } = useParams();
+  
+  const {data,error, isFetching, isLoading } = useContactQuery(id!);
+  
+  useEffect(() => {
+    if(error) {
+      toast.error("Something went Wrog")
+    }
+  }, [error]);
 
   useEffect(() => {
     if (id) {
