@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAddContactMutation, useContactQuery } from "../services/contactApi";
 import "./AddEditUser.css";
 
 const initialState = {
@@ -20,10 +21,14 @@ const AddEditUser = () => {
   useEffect(() => {
     if (id) {
       setEditMode(true);
+      if(data){
+        setFormValue({...data});
+      }
     } else {
       setEditMode(false);
+      setFormValue({...initialState});
     }
-  }, [id]);
+  }, [id, data]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
